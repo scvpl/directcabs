@@ -1,0 +1,94 @@
+<div class="page" data-name="about">
+  <div class="navbar">
+    <div class="navbar-inner sliding">
+      <div class="left">
+        <a href="#" class="link back">
+          <i class="icon icon-back"></i>
+          <span class="ios-only">Back</span>
+        </a>
+      </div>
+      <div class="title"></div>
+    </div>
+  </div>
+  <div class="page-content">
+    <div class="block-title"></div>  
+    <p style="text-align: center;">Sign in with your phone number below.</p>
+
+    <form id="sign-in-form" action="#" class="list no-hairlines-md">
+      <ul>
+        <li class="item-content item-input item-input-with-info">
+          <div class="item-media">
+            <i class="icon demo-list-icon"></i>
+          </div>
+          <div class="item-inner">
+            <div class="item-title item-label">Number</div>
+            <div class="item-input-wrap">
+              <input type="tel" placeholder="Enter your phone number..." required validate pattern="[0-9]+" data-error-message="Input is not an international phone number!" id="phone-number">
+              <span class="input-clear-button"></span>
+              <!-- <div class="item-input-info">With custom error message</div> -->
+            </div>
+          </div>
+        </li>
+      </ul>      
+
+      <div class="block block-strong row">
+        <button class="col button button-fill" id="sign-in-button">Sign-in</button>        
+      </div>
+    </form>
+
+    <form id="verification-code-form" action="#" class="list no-hairlines-md">
+
+      <ul>
+        <li class="item-content item-input item-input-with-info">
+          <div class="item-media">
+            <i class="icon demo-list-icon"></i>
+          </div>
+          <div class="item-inner">
+            <div class="item-title item-label">Verification Code</div>
+            <div class="item-input-wrap">
+              <input type="text" placeholder="Enter your verification code" required validate id="verification-code">
+              <span class="input-clear-button"></span>
+              <!-- <div class="item-input-info">With custom error message</div> -->
+            </div>
+          </div>
+        </li>
+      </ul> 
+
+      <p class="row">
+        <input type="submit" class="col button button-fill button-raised" id="verify-code-button" value="Verify Code"/>
+      </p>
+      <!-- Button to cancel code verification -->
+      <p class="row">
+        <button class="col button button-fill button-raised color-red" id="cancel-verify-code-button">Cancel</button>
+      </p>
+     
+    </form>
+
+
+   <!-- < <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+      <p>Sign in with your phone number below.</p>
+
+      form id="sign-in-form" action="#">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input class="mdl-textfield__input" type="text" pattern="\+[0-9\s\-\(\)]+" id="phone-number">
+          <label class="mdl-textfield__label" for="phone-number">Enter your phone number...</label>
+          <span class="mdl-textfield__error">Input is not an international phone number!</span>
+        </div>
+
+        <button disabled class="mdl-button mdl-js-button mdl-button--raised" id="sign-in-button">Sign-in</button>
+      </form>
+
+      <button class="mdl-button mdl-js-button mdl-button--raised" id="sign-out-button">Sign-out</button>
+
+      <form id="verification-code-form" action="#">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input class="mdl-textfield__input" type="text" id="verification-code">
+          <label class="mdl-textfield__label" for="verification-code">Enter the verification code...</label>
+        </div>
+
+        <input type="submit" class="mdl-button mdl-js-button mdl-button--raised" id="verify-code-button" value="Verify Code"/>
+        <button class="mdl-button mdl-js-button mdl-button--raised" id="cancel-verify-code-button">Cancel</button>
+      </form>
+    </div> -->
+  </div>
+</div>

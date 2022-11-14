@@ -1,0 +1,83 @@
+<div class="page" data-page="trips">
+  <div class="navbar" style="background:#eee;color:#000;">
+    <div class="navbar-inner sliding">
+        <div class="left">
+            <a href="/" class="link">
+                <i class="icon icon-back color-black"></i>
+                <span class="ios-only">Back</span>
+            </a>
+        </div>
+        <div class="center sliding">Trips</div>
+        <div class="right">
+            <!-- <a href="#" class="link icon-only open-panel" data-panel="right">
+                <span class="kkicon icon-alarm"></span>
+            </a> -->
+        </div>
+    </div>
+  </div>
+  <!-- <form class="searchbar searchbar-init" data-search-list=".list-block-search" data-search-in=".item-after" data-found=".searchbar-found" data-not-found=".searchbar-not-found">
+        <div class="searchbar-input">
+            <input type="search" placeholder="Search By Trip Id">
+            <a href="#" class="searchbar-clear"></a>
+        </div>
+        <a href="#" class="searchbar-cancel">Cancel</a>
+    </form> -->
+    <form class="searchbar searchbar-init" data-search-container=".list-block-search" data-search-in=".item-after,.item-title-row" data-found=".searchbar-found" data-not-found=".searchbar-not-found">
+      <div class="searchbar-inner">
+        <div class="searchbar-input-wrap">
+          <input type="search" placeholder="Search By Date and Address" style="font-size: 14px;">
+          <i class="searchbar-icon"></i>
+          <span class="input-clear-button"></span>
+        </div>
+        <span class="searchbar-disable-button">Cancel</span>
+      </div>
+    </form>
+    
+    <div class="page-content">
+      <div class="searchbar-backdrop"></div>
+      <!-- Nothing found message -->
+      <div class="block searchbar-not-found">
+        <div class="block-inner">Nothing found</div>
+      </div>
+      <div class="list block">
+          <a href="#" class="button button-raised button-fill button-primary" style="width:100%;color:#fff;text-decoration:none;" onclick="filterDate();">Filter</a>
+          <!-- <a href="#" class="button button-raised button-fill button-primary export_pay" style="width:100%;">Export Receipts</a> -->
+      </div>
+      <div class="list inputs-list filter_date" style="display: none;">
+        <ul>
+          <li class="item-content item-input">
+            <div class="item-media"><i class="fa fa-sort-numeric-asc"></i></div>
+            <div class="item-inner"> 
+              <div class="item-title">Date From (upto 30 days)</div>
+              <div class="item-input" style="width: 100%;">
+                <table width="100%" cellspacing="2" cellpadding="2" style="margin:2% 0;">
+                  <tr>
+                    <th>
+                      <input type="hidden" name="fil_refund">
+                      <input type="date" name="datefrom" id="datefrom" style="border:#eee 1px solid;" required>
+                    </th>
+                    <!-- <th><span style="font-size:20px;">-</span></th>
+                   <th><input type="number" name="scoreto" style="border:#eee 1px solid;"></th> -->
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="item-content item-inner">
+            <p class="buttons-row" style="width:100%;">
+                <a href="#" onclick="filterData();" class="tab-link button button-raised button-fill button-primary">Filter Data</a>
+            </p>
+        </div>
+      </div>
+      <!-- <div style="margin:-10px 10px;padding:0px 10px;font-weight:bold;">Total Payment :
+        <span id="total_pay"></span>
+      </div> -->
+      <div class="list block list-block-search searchbar-found media-list">
+        <ul class="triplist">
+          
+        </ul>
+      </div>
+
+    </div>
+</div>

@@ -1,0 +1,41 @@
+$bg                     : "img/bg.jpg" !default;
+
+$colorFont              : #f0f0f0 !default;
+$colorBG                : #2E2C37 !default;
+$colorPrimary           : #d35400 !default;
+$colorPrimaryFont       : #ffffff !default;
+$colorSecondary         : #008086 !default;
+$colorSecondaryFont     : #ffffff !default;
+$colorContentBlockTitle : #f0f0f0 !default;
+
+$colorInfo              : #56cdfc !default;
+$colorSuccess           : #34c240 !default;
+$colorWarning           : #fa9f47 !default;
+$colorDanger            : #d64242 !default;
+$colorError             : #c0392b !default;
+
+$colorFacebook          : #4862A3 !default;
+$colorTwitter           : #33CCFF !default;
+$colorPinterest         : #CC2127 !default;
+$colorLinkedIn          : #0274B3 !default;
+$colorGPlus             : #D95232 !default;
+$colorFlickr            : #FF0084 !default;
+
+
+$avaSize        : 75px !default;
+$avaPadding     : 2px !default;
+$borderRadius   : 3px !default;
+
+// NAVBAR
+$navbarBG           : $colorPrimary;
+$navbarColor        : #ffffff !default;
+$navbarBorderColor  : $colorPrimary;
+
+// SIDEBAR
+$sidebarColor       : #f0f0f0 !default;
+$sidebarBG          : #333333 !default;
+$menuBorder         : #333333 !default;
+$menuColor          : #cccccc !default;
+$menuHoverBG        : #222222 !default;
+//$dividerBG          : darken($colorPrimary, 35%);
+$dividerBG          : #222222;

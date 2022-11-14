@@ -1,0 +1,70 @@
+{
+  "name": "com.directcabs.scvpl",
+  "displayName": "Direct Cab",
+  "version": "1.0.0",
+  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "Apache Cordova Team",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "cordova-android": "^11.0.0",
+    "cordova-browser": "^6.0.0"
+  },
+  "cordova": {
+    "platforms": [
+      "android",
+      "browser"
+    ],
+    "plugins": {
+      "cordova-plugin-firebasex": {
+        "FIREBASE_ANALYTICS_COLLECTION_ENABLED": "true",
+        "FIREBASE_PERFORMANCE_COLLECTION_ENABLED": "true",
+        "FIREBASE_CRASHLYTICS_COLLECTION_ENABLED": "true",
+        "FIREBASE_FCM_AUTOINIT_ENABLED": "true",
+        "ANDROID_ICON_ACCENT": "#FF00FFFF",
+        "ANDROID_FIREBASE_PERFORMANCE_MONITORING": "false",
+        "ANDROID_PLAY_SERVICES_TAGMANAGER_VERSION": "18.0.1",
+        "ANDROID_PLAY_SERVICES_AUTH_VERSION": "20.2.0",
+        "ANDROID_FIREBASE_ANALYTICS_VERSION": "21.0.0",
+        "ANDROID_FIREBASE_MESSAGING_VERSION": "23.0.5",
+        "ANDROID_FIREBASE_CONFIG_VERSION": "21.1.0",
+        "ANDROID_FIREBASE_PERF_VERSION": "20.0.6",
+        "ANDROID_FIREBASE_AUTH_VERSION": "21.0.4",
+        "ANDROID_FIREBASE_INAPPMESSAGING_VERSION": "20.1.2",
+        "ANDROID_FIREBASE_FIRESTORE_VERSION": "24.1.2",
+        "ANDROID_FIREBASE_FUNCTIONS_VERSION": "20.1.0",
+        "ANDROID_FIREBASE_IID_VERSION": "21.1.0",
+        "ANDROID_FIREBASE_INSTALLATIONS_VERSION": "17.0.1",
+        "ANDROID_FIREBASE_CRASHLYTICS_VERSION": "18.2.10",
+        "ANDROID_FIREBASE_CRASHLYTICS_NDK_VERSION": "18.2.10",
+        "ANDROID_GSON_VERSION": "2.9.0",
+        "ANDROID_FIREBASE_PERF_GRADLE_PLUGIN_VERSION": "1.4.1",
+        "ANDROID_GRPC_OKHTTP": "1.46.0"
+      },
+      "cordova-plugin-firebase-dynamiclinks": {
+        "APP_DOMAIN_NAME": "directapp.page.link",
+        "APP_DOMAIN_PATH": "/",
+        "ANDROID_FIREBASE_BOM_VERSION": "30.3.1"
+      },
+      "cordova-plugin-locationservices": {},
+      "cordova-plugin-qrscanner-x2": {},
+      "cordova-plugin-x-socialsharing": {}
+    }
+  },
+  "dependencies": {
+    "cordova-plugin-firebase-dynamiclinks": "7.0.2",
+    "cordova-plugin-firebasex": "14.2.1",
+    "cordova-plugin-locationservices": "2.1.0",
+    "cordova-plugin-qrscanner-x2": "3.0.3",
+    "cordova-plugin-x-socialsharing": "6.0.4",
+    "cordova-support-android-plugin": "2.0.4",
+    "es6-promise-plugin": "4.2.2",
+    "qr-scanner": "^1.4.1"
+  }
+}

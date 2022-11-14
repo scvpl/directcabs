@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.directcabs.scvpl" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Direct Cab</name>
+    <description>Hassle free ride service</description>
+    <author email="suman@socialcloudventures.com" href="https://directcabs.in/">
+        Team Social Cloud
+    </author>
+    <content src="main.html" />
+    
+    <access origin="*" />
+    <access subdomains="true" url="https://*.firebaseio.com" />
+    <access subdomains="true" url="https://*.gstatic.com" />
+    
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+        
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <platform name="android">
+        <allow-intent href="market:*" />
+        <access origin="*" />
+        <allow-intent href="*" />
+        <allow-navigation href="*" />
+        <!-- <config-file parent="./" target="app/src/main/AndroidManifest.xml" xmlns:android="http://schemas.android.com/apk/res/android">
+            <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+        </config-file> -->
+        <resource-file src="google-services.json" target="google-services.json" />
+        <icon density="ldpi" src="res/android/drawable-ldpi/icon.png" />
+        <icon density="mdpi" src="res/android/drawable-mdpi/icon.png" />
+        <icon density="hdpi" src="res/android/drawable-hdpi/icon.png" />
+        <icon density="xhdpi" src="res/android/drawable-xhdpi/icon.png" />
+        <icon density="xxhdpi" src="res/android/drawable-xxhdpi/icon.png" />
+        <!-- <splash density="ldpi" name="AndroidWindowSplashScreenAnimatedIcon" value="res/android/drawable-ldpi/screen.png" />
+        <splash density="mdpi" name="AndroidWindowSplashScreenAnimatedIcon" value="res/android/drawable-mdpi/screen.png" />
+        <splash density="hdpi" name="AndroidWindowSplashScreenAnimatedIcon" value="res/android/drawable-hdpi/screen.png" />
+        <splash density="xhdpi" name="AndroidWindowSplashScreenAnimatedIcon" value="res/android/drawable-xhdpi/screen.png" />
+        <splash density="xxhdpi" name="AndroidWindowSplashScreenAnimatedIcon" value="res/android/drawable-xxhdpi/screen.png" /> -->
+        <!-- res\android\drawable-xxxhdpi\screen.png -->
+        <!-- res\android\drawable-land-xxxhdpi\screen.png -->
+        <preference name="AndroidWindowSplashScreenAnimatedIcon" value="res/android/drawable-xxxhdpi/screen.png" />
+        <color name="cdv_splashscreen_background">#FFFFFF</color>
+        <!-- <splash src="res/android/drawable-xxxhdpi/screen.png" /> -->
+    </platform>
+    <preference name="SplashScreenDelay" value="10000" />
+    <preference name="ShowSplashScreenSpinner" value="true"/>
+    <preference name="AndroidWindowSplashScreenIconBackgroundColor" value="#c0c0c0" />
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+        <resource-file src="GoogleService-Info.plist" />
+    </platform>
+</widget>

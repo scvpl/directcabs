@@ -1,0 +1,58 @@
+<div class="page" data-page="ride">
+    <div class="navbar" style="background:#eee;color:#000;">
+        <div class="navbar-inner sliding">
+            <div class="left">
+                <a href="#" class="link back">
+                    <i class="icon icon-back color-black"></i>
+                    <span class="ios-only">Back</span>
+                </a>
+            </div>
+            <div class="center sliding">Book Ride</div>
+            <div class="right">
+                <!-- <a href="#" class="link icon-only open-panel" data-panel="right">
+                    <span class="kkicon icon-alarm"></span>
+                </a> -->
+            </div>
+        </div>
+    </div>
+
+    <div class="page-content">
+        <div class="fab fab-extended fab-right-bottom color-green">
+            <a href="#" style="width:96%;border-radius:10px;" class="submitRide"><div class="fab-text">Go</div></a>
+        </div>
+        <form class="list-block media-list" id="pickup" style="position: absolute; z-index: 1; margin: 5% 11%;">
+            <ul style="background: white; width: 265px;">
+              <li style="border-bottom: dotted #000;">
+                <input type="text" name="add" id="pickup_loc" placeholder="Pickup Location" style="padding:5px;" required>
+              </li>
+              <li style="display: none;">
+                <input type="number" name="lat" id="latitude_p" placeholder="Latitude" required/>
+              </li>
+              <li style="display: none;">
+                <input type="number" name="lng" id="longitude_p" placeholder="Longitude" required/>
+              </li>
+              <li style="display: none;">
+                <input type="text" name="formatted_address" id="pick_add" placeholder="Pickup Address" required/>
+              </li>
+            </ul>
+        </form>
+        <form class="list-block media-list" id="drop" style="position: absolute; z-index: 1; margin: 17% 11%;">
+            <ul style="background: white; width: 265px;">
+              <li style="border-bottom: dotted #000;">
+                <input type="text" name="add" id="drop_loc" placeholder="Drop Location" class="" style="padding:5px;" required>
+              </li>
+              <li style="display: none;">
+                <input type="number" name="lat" id="latitude_drop" placeholder="Latitude" required/>
+              </li>
+              <li style="display: none;">
+                <input type="number" name="lng" id="longitude_drop" placeholder="Longitude" required/>
+              </li>
+              <li style="display: none;">
+                <input type="text" name="formatted_address" id="drop_add" placeholder="Drop Address" required/>
+              </li>
+            </ul>
+        </form>
+        <div id="mapcanvas"></div>
+        <div id="directions"></div>
+    </div>
+</div>

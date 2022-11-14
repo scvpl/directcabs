@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta http-equiv="default-src 'self' data: gap: ws: 'unsafe-inline' https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>Direct Cabs</title>
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="bower_components/framework7/dist/css/framework7.bundle.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/framework7/3.1.1/css/framework7.min.css" /> -->
+  <!-- <link rel="stylesheet" href="bower_components/framework7/dist/css/framework7.ios.min.css"> -->
+  <link rel="stylesheet" href="assets/css/app.css">
+  <!-- <link rel="stylesheet" href="assets/themes/blue/style.css"> -->
+  <link rel="stylesheet" href="css/intlInputPhone.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/jssocials.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/jssocials-theme-flat.css" />
+  <link rel="stylesheet" href="assets/css/myapp.css?v=750">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+  <style type="text/css">
+    body {
+      margin: 0;
+    }
+    #geocomplete {
+      width: 200px
+    }
+    textarea::-webkit-input-placeholder {
+      color: #999;
+    }
+    #map_canvas {
+      width: 100%;
+      height: 100%;
+      position: absolute !important;
+      top: 0;
+    }
+    .pac-container {
+      z-index: 5000 !important;
+    }
+    
+    #map {
+      width: 100%;
+      height: 400px;
+    }
+    .controls {
+      margin-top: 10px;
+      border: 1px solid transparent;
+      border-radius: 2px 0 0 2px;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      height: 32px;
+      outline: none;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+    .ios .toolbar-inner {
+        padding: 0 15px 0 8px;
+    }
+
+    #multiple li {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    fieldset { width: 320px; margin-top: 20px}
+    fieldset label { display: block; margin: 0.5em 0 0em; }
+    fieldset input { width: 95%; }
+    #mapcanvas {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+    }
+    .locationform input:hover { background-color:#eee; }
+    .swipe-handler {
+      height: 16px;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      top: 0;
+      background: #fff;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .result{
+      background-color: green;
+      color:#fff;
+      padding:20px;
+    }
+    .row{
+      display:flex;
+    }
+  </style>
+  <link rel="manifest" href="manifest.json">
+</head>
+<body onLoad="onBodyLoad();">
+
+  <div class="row">
+    <div class="col">
+      <div style="width:500px;" id="reader"></div>
+    </div>
+  </div>
+
+  <div id="app">
+    <div class="statusbar"></div>
+    <div class="panel panel-left panel-cover">
+      <div class="list media-list" style="margin:0px;background:#000;padding:50px 0px;color:#fff;">
+        <ul>
+          <li><div class="item-content" style="background:#000;">
+            <div class="item-media"><img src="" class="userimage" width="60"></div>
+            <div class="item-inner" style="font-size:13px;margin-top:5px;">
+              <div class="item-title-row username"></div>
+              <div class="item-subtitle usernum"></div>
+            </div>
+          </div></li>
+        </ul>
+      </div>
+      <div class="list" style="margin: 0;">
+        <div class="page-content">
+          <div class="block-title">Direct Cabs</div>
+          <div class="list links-list">
+            <ul>
+              <li>
+                <a href="/refer/" class="panel-close">Free Rides</a>
+              </li>
+              <li>
+                <a href="/trips/" class="panel-close">Trips</a>
+              </li>
+              <li>
+                <a href="/feedback/" class="panel-close">Feedback</a>
+              </li>
+              <!-- <li>
+                <a href="/chatinvite/" class="panel-close">Chat</a>
+              </li> -->
+              <li>
+                <a href="/settings/" class="panel-close">Settings</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-right panel-reveal">
+      <div class="view view-init view-right" name="right" data-url="/">
+        <div class="page">
+          <div class="navbar">
+            <div class="navbar-inner sliding">
+              <div class="title">Right Panel</div>
+            </div>
+          </div>
+          <div class="page-content">
+            <div class="block">
+              <p>This is a right side panel. You can close it by clicking outsite or on this link: <a href="#" class="panel-close">close me</a>. You can put here anything, even another isolated view.</p>
+            </div>
+            <div class="block-title">Panel Navigation</div>
+            <div class="list links-list">
+              <ul>
+                <li><a href="/panel-right-1/">Right panel page 1</a></li>
+                <li><a href="/panel-right-2/">Right panel page 2</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="view view-main view-init ios-edges">
+      <div class="page" data-name="index">
+        <div class="navbar" style="color:#000;">
+          <div class="navbar-inner">
+            <div class="left">
+              <a href="#" class="panel-open link icon-only"><i class="fa fa-bars" aria-hidden="true"></i></a>
+            </div>
+            <div class="title sliding" style="font-size:16px;">Direct Cabs</div>
+            <div class="right">
+              <a href="#" class="link" onclick="scancode();"><i class="fa fa-qrcode" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="page-content">
+          <!-- <div class="fab fab-extended fab-right-bottom color-green submit_ride">
+              <a href="#" style="width:96%;border-radius:10px;" class="submitRide"><div class="fab-text">Go</div></a>
+          </div> -->
+          <div class="list ride_ongoing" style="display:none;">
+            <a href="#" class="button button-fill color-lightblue">Ride Ongoing</a>
+          </div>
+          <div class="list ride_cont" style="display:none;">
+            <a href="#" class="button button-fill color-lightblue bookride" style="display:none;">Book</a>
+            <a href="#" onclick="rideContinue();" class="button button-fill color-lightblue">Book a ride</a>
+          </div>
+          <div class="list ride_timer" style="display:none;">
+            <a href="#" onclick="rideContinue();" class="button button-fill color-lightblue">Waiting for response <span id="30" class="ride_time"></span></a>
+          </div>
+          <div id="mapcanvas"></div>
+          <div id="map_canvas" style="display:none;"></div>
+          <!-- <div class="dot" style="margin-top: 125px;">
+              <div class="centraldot" style="z-index:2"></div>
+              <div class="wave" style="z-index:3"></div>
+              <div class="wave2" style="z-index:4"></div>
+          </div> -->
+          <div id="directions"></div>
+          <div class="list media-list locationform">
+            <form id="pickup" style="width:92%;">
+              <ul>
+                <li class="item-content item-input">
+                  <div class="item-media" style="margin:0px -25px 10px 5px;"><i class="fa fa-circle" style="font-size:10px;"></i></div>
+                  <div class="item-inner" style="padding:5px 0px;">
+                    <div class="item-input-wrap">
+                      <input type="text" name="add" id="pickup_loc" placeholder="Enter pickup location" autocomplete="off" required>
+                      <span class="input-clear-button" onclick="clearAddress('pickup_loc');"></span>
+                    </div>
+                  </div>
+                </li>
+                <!-- <li style="border:none;">
+                  <input type="text" name="add" id="pickup_loc" placeholder="Enter pickup location" style="padding:5px;" required>
+                  <button onclick="clearAddress('pickup_loc');" id="pickClose">x</button>
+                </li> -->
+                <li style="display:none;">
+                  <input type="number" name="lat" id="latitude_p" required/>
+                </li>
+                <li style="display:none;">
+                  <input type="number" name="lng" id="longitude_p" required/>
+                </li>
+                <li style="display:none;">
+                  <input type="text" name="formatted_address" id="pick_add" required/>
+                </li>
+              </ul>
+            </form>
+            <form id="drop" style="width:92%;">
+              <ul>
+                <li class="item-content item-input">
+                  <div class="item-media" style="margin:0px -25px 10px 5px;"><i class="fa fa-square" style="font-size:10px;"></i></div>
+                  <div class="item-inner" style="padding:5px 0px;">
+                    <div class="item-input-wrap">
+                      <input type="text" name="add" id="drop_loc" placeholder="Where to go?" autocomplete="off" required>
+                      <span class="input-clear-button" onclick="clearAddress('drop_loc');"></span>
+                    </div>
+                  </div>
+                </li>
+                <!-- <li style="border:none;">
+                  <input type="text" name="add" id="drop_loc" placeholder="Where to?" style="padding:5px;" required>
+                  <button onclick="clearAddress('drop_loc');" id="dropClose">x</button>
+                </li> -->
+                <li style="display:none;">
+                  <input type="number" name="lat" id="latitude_drop" required/>
+                </li>
+                <li style="display:none;">
+                  <input type="number" name="lng" id="longitude_drop" required/>
+                </li>
+                <li style="display:none;">
+                  <input type="text" name="formatted_address" id="drop_add" required/>
+                </li>
+              </ul>
+            </form>
+          </div>
+          <div class="list media-list jumpdiv" align="center">
+            <img src="img/jumplocation.gif" style="width:200px;height:150px;">
+          </div>
+          <div class="list media-list firstdivscan" style="display:none;">
+            <ul>
+              <li>
+                <img src="img/bookscan.jpg" style="width:99%;margin:5px;">
+              </li>
+            </ul>
+            <ul>
+              <li><a href="#" class="item-link item-content">
+                <div class="item-media" style="margin:10px -20px 0px 0px;">
+                  <i class="fa fa-qrcode fa-lg"></i>
+                </div>
+                <div class="item-inner">
+                  <div class="item-title" style="font-size:14px;white-space:initial;">Why wait, when you can <span style="font-size:20px;font-weight:bold;">Scan and Book</span> cab in front of you</div>
+                </div></a>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <a href="#" class="button button-fill color-lightblue" onclick="scancode();" style="width:98%;margin:0px 0px 10px 5px;">Scan</a>
+              </li>
+            </ul>
+          </div>
+          <div class="list media-list firstdiv" style="display:none;">
+            <ul>
+              <li><a href="#" class="item-link item-content">
+                <div class="item-media" style="margin:3px -20px 0px 10px;">
+                  <i class="fa fa-map-marker fa-lg"></i>
+                </div>
+                <div class="item-inner">
+                  <div class="item-title" style="white-space:initial;" id="currentAdd"></div>
+                </div></a>
+              </li>
+            </ul>
+            <form class="whereto">
+              <ul>
+                <li>
+                  <input type="button" name="add" id="pick_loc" value="Enter pickup location"/>
+                  <input type="button" name="add" id="where_loc" value="Where to go?"/>
+                </li>
+              </ul>
+            </form>
+            <ul style="padding:0px;margin:0px;" class="addresses">
+              <li class="saved"><a href="#" class="item-link item-content">
+                <div class="item-media">
+                  <i class="fa fa-star fa-lg" style="color:gray;"></i>
+                </div>
+                <div class="item-inner">
+                  <div class="item-title">Choose a saved place</div>
+                </div></a>
+              </li>
+            </ul>
+          </div>
+          <!-- <div class="list media-list cabs"></div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Login Page-->
+  <div class="login-screen">
+    <div class="page">
+      <div class="page-content login-screen-content">
+        <!-- <div class="login-screen-title">Framework7</div> -->
+        <div data-pagination='{"el": ".swiper-pagination"}' data-space-between="50"  class="swiper-container swiper-init" style="height:60%;background:black;color:white;">
+          <div class="swiper-pagination"></div>
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" align="center">
+                <img src="assets/img/directcabs.png" alt="" style="width:40%;margin-top:90px;" />
+                <!-- <h1>Faster than Cash</h1>
+                <h2> Cards . Wallet . UPI </h2> -->
+            </div>
+            <div class="swiper-slide" align="center">
+                <img src="assets/img/directcabs.png" alt="" style="width:40%;margin-top:90px;" />
+                <!-- <h1>Get upto 100% CashBack</h1>
+                <h2> Rides . Restaurants. Retail </h2> -->
+            </div>
+            <div class="swiper-slide" align="center">
+                <img src="assets/img/directcabs.png" alt="" style="width:40%;margin-top:90px;" />
+                <!-- <h1>Play Games for Social Score</h1>
+                <h2> High score gets you royal treatment.</h2> -->
+            </div>
+            <div class="swiper-slide" align="center">
+                <img src="assets/img/directcabs.png" alt="" style="width:40%;margin-top:90px;" />
+                <!-- <h1>Faster than Cash</h1>
+                <h2> Cards . Wallet . UPI </h2> -->
+            </div>
+          </div>
+        </div>
+        <div class="list" style="margin:10px 0px;">
+          <form id="verifyform" class="form form-store-data">
+            <ul>
+              <li class="item-content item-input">
+                <div class="item-inner" id="verifynum">
+                  <div class="item-title item-label" style="padding:10px 0px;">Enter Phone Number</div>
+                  <div class="input-phone" autofocus>
+                    <input type="text" placeholder="Enter your ten digit mobile number." style="padding:10px;">
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <input type="submit" class="button button-fill color-lightblue phonesubmit" value="Sign In" style="margin:0px 10px;width:95%;" />
+            <div class="block-footer">Having trouble logging in, please connect with your administrator.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup popup-swipe-to-close">
+    <div class="block text-align-center">
+      <p>Swipe me up or down to close</p>
+    </div>
+  </div>
+  <!-- Swipe to step sheet -->
+  <div class="sheet-modal my-sheet-swipe-to-step" style="height:auto; --f7-sheet-bg-color:#fff;">
+    <div class="sheet-modal-inner">
+      <div class="sheet-modal-swipe-step">
+        <div class="padding-horizontal padding-bottom">
+          <div class="margin-top text-align-center">
+            <div class="animated bounce slow infinite" style="float:left;"><i class="fa fa-arrow-up"></i></div>
+            Swipe up for choose address</div>
+        </div>
+      </div>
+      <div class="list media-list" style="margin:0;">
+        <ul style="padding:0px;margin:0px;" class="addresses"></ul>
+        <ul style="padding:0px;margin:0px;">
+          <li><a href="/places/index/" class="item-link item-content">
+            <div class="item-media">
+              <i class="fa fa-star fa-lg" style="color:gray;"></i>
+            </div>
+            <div class="item-inner">
+              <div class="item-title-row">Saved places</div>
+            </div></a>
+          </li>
+        </ul>
+        <ul style="padding:0px;margin:0px;" class="moreaddress"></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="sheet-modal cabsheet" style="height:auto; --f7-sheet-bg-color:#fff;">
+    <div class="sheet-modal-inner">
+      <div class="swipe-handler" align="center">
+        <a href="#" onclick="stepToggle();"><img src="img/minus.png" width="50" height="15"></a>
+      </div>
+      <div class="sheet-modal-swipe-step">
+        <div class="padding-horizontal padding-bottom">
+          <div class="margin-top text-align-center">
+            <div class="animated bounce slow infinite" style="float:left;"><i class="fa fa-arrow-up"></i></div>
+            <div class="cabswipe">Swipe up for ride details</div>
+          </div>
+          <div align="right" class="selectcabs" style="display:none;border-top:1px solid #eee;margin-top:5px;">
+            <select name="sortcabs" class="sortcabs" style="margin:5px 0px -10px 0px;float:right;">
+              <option value="fare">Sort by Fare</option>
+              <option value="eta">Sort by ETA</option>
+            </select>
+            <span style="float:right;margin:5px 5px 10px 0px;"><i class="fa fa-sort"></i></span>
+          </div>
+        </div>
+      </div>
+      <div class="list media-list cabs"> </div>
+      <div class="list media-list track" style="display:none;margin:0;"> </div>
+    </div>
+  </div>
+
+  <div class="popup messenger-popup">
+    <div class="page-content">
+      <div align="center">
+        <img src="assets/img/connectmessenger.png" />
+      </div>
+      <div style="text-align:center;margin-top:3%;">Activate "Golu" your personal bot on Messenger to book Rides with 100% CashBack.</div>
+      <div class="block" style="margin:10px 0;">
+        <a href="#" onclick="addMessenger();" class="button button-primary button-fill">Activate Messenger</a>
+      </div>
+    </div>
+  </div>
+  <div class="popup location-popup">
+    <div class="page-content">
+      <div align="center">
+        <img src="assets/img/locationpopup.png" />
+      </div>
+      <div style="text-align:center;margin-top:3%;">We need to know your location, so you never miss a CashBack, wherever you are.</div>
+      <div class="block" style="margin:10px 0;">
+        <a href="#" onclick="getLocation();" class="button button-primary button-fill">Allow</a>
+      </div>
+    </div>
+  </div>
+  <div class="popup popup-tandc layout-dark" style="overflow:auto;">
+    <div class="right" style="margin:10px;">
+      <a href="#" class="link popup-close" style="float:right;">
+        Close
+      </a>
+    </div>
+    <div class="block">      
+    <p style="text-align: justify; ">
+        Legal
+    <b>DRIVER PRIVACY STATEMENT</b><br> 
+    Effective Date: Feb 20th, 2017
+    Social Cloud Ventures Pvt. Ltd. collects information about you when you use our mobile applications, websites, and other online products and services (collectively, the “Services”) and through other interactions and communications you have with us. This Privacy Statement (“Statement”) applies to information collected and used by Social Cloud Ventures Pvt. Ltd. (hereinafter “SCVPL / SOCIAL RECHARGE / SR Partner / SR Pay” or “we”).<br>
+    <b>Scope and Application</b><br>
+    This Statement applies to drivers, couriers, partner transportation companies, and any other persons that use the SOCIAL RECHARGE platform under license (collectively “Drivers,” or individually “you”). The Statement also does not apply to persons (e.g. riders) who use our app or Services to request transportation, delivery, or other on-demand services (“Users”). If you interact with the Services as both a User and a Driver, the respective privacy statements apply to your different interactions.<br>
+    <b>Collection of Information</b><br>
+    Information You Provide to Us
+    We collect information you provide directly to us, such as when you create, modify, or log in to your account, request support from us, consent to a background check, submit your driver’s license, submit information about your vehicle or insurance, or otherwise communicate with us. This information may include: name, email, phone number, postal address, profile picture, payment information, vehicle registration information, insurance information, driver’s license information, and other information you may choose to provide.
+    Information We Collect Through Your Use of Our Services
+    When you use our Services, we collect information about you in the following general categories:<br>
+    • Location Information: As a condition of providing Users with transportation, delivery, or other services via the SOCIAL RECHARGE platform, your precise location data must be provided to SOCIAL RECHARGE via the app / or Bot that you use. Once the SOCIAL RECHARGE app has permission to access location services through the permission system used by your mobile operating system (“platform”), we will collect the precise location of your device when the app is running in the foreground or background. We may also derive your approximate location from your IP address.<br>
+    • Contacts Information: If you permit the SOCIAL RECHARGE app to access the address book on your device via the permission system used by your platform, we may access and store names and contact information from your address book to facilitate social interactions through our Services and for other purposes described in this Statement or at the time of consent or collection.<br>
+    • Transaction Information: We collect transaction details related to the transportation (or other) services you provide through our platform, including the type of service provided, date and time the service was provided, amount charged, distance traveled, and other related transaction details. Additionally, if someone uses your promo code, we may associate your name with that person.<br>
+    • Usage and Preference Information: We collect information about how you and site visitors interact with our Services, preferences expressed, and settings chosen. In some cases we do this through the use of cookies, pixel tags, and similar device identification technologies that create and maintain unique identifiers.<br> 
+    • Device Information: We may collect information about your mobile device (whether your own device or a device we provide you), including, for example, the hardware model, operating system and version, software and file names and versions, preferred language, unique device identifier, advertising identifiers, serial number, device motion information, and mobile network information.<br>
+    • Call and SMS Data: Our Services facilitate communications between Users and Drivers. In connection with facilitating this service, we receive call data, including the date and time of the call or SMS message, the parties’ phone numbers, and the content of the SMS message.<br>
+    • Log Information: When you interact with the Services, we collect server logs, which may include information like device IP address, access dates and times, app features or pages viewed, app crashes and other system activity, type of browser, and the third-party site or service you were using before interacting with our Services.<br>
+    <b>Important Information About Platform Permissions</b>
+    Most mobile platforms (iOS, Android, etc.) have defined certain types of device data that apps cannot access without your consent. And these platforms have different permission systems for obtaining your consent. The iOS platform will alert you the first time the SOCIAL RECHARGE app wants permission to access certain types of data and will let you consent (or not consent) to that request. Android devices will notify you of the permissions that the SOCIAL RECHARGE app seeks before you first use the app, and your use of the app constitutes your consent.<br>
+    <b>Information We Collect From Other Sources</b>
+    We may also receive information from other sources and combine that with information we collect through our Services. For example:<br>
+    • If you choose to link, create, or log in to your SOCIAL RECHARGE account with a payment provider (e.g., Razor Pay Payment Solution / Ezee Tap Payment ) or social media service (e.g., Facebook), or if you engage with a separate app or website that uses our API (or whose API we use), we may receive information about you or your connections from that site or app.<br>
+    • If you use the Services through an account associated with a partner transportation company, we may receive information about you from that partner company.<br>
+    • When you provide on demand services to Users, our Users may provide us with a driver rating or similar rating of the service you provide for them.<br>
+    • If you also interact with our Services in another capacity, for instance to request on demand services as a User, or as a user of other apps we may provide, we may combine or associate that information with information we have collected from you in your capacity as a Driver.<br>
+    <b>Use of Information</b><br>
+    <strong>We may use the information we collect about you to:</strong><br>
+    • Provide, maintain, and improve our Services, including, for example, to facilitate payments, send receipts, provide products and services (and send related information), develop new features, provide customer support to Users and Drivers, develop safety features, authenticate users, and send product updates and administrative messages;<br>
+    • Perform internal operations, including, for example, to prevent fraud and abuse of our Services; to troubleshoot software bugs and operational problems; to conduct data analysis, testing, and research; and to monitor and analyze usage and activity trends;<br>
+    • Send or facilitate communications (i) between you and a User (e.g. a rider), such as estimated times of arrival (ETAs), or (ii) between you and a contact of yours at your direction in connection with your use of certain features, such as referrals.<br>
+    • Send you communications we think will be of interest to you, including information about products, services, promotions, news, and events of SOCIAL RECHARGE and other companies, where permissible and according to local applicable laws; and to process contest, sweepstake, or other promotion entries and fulfill any related awards;<br>
+    • Personalize and improve the Services, including to provide or recommend features, content, social connections, referrals, and advertisements.
+    We may transfer the information described in this Statement to, and process and store it in, our third party cloud servers. (eg: from Google, Amazon etc.). Where this is the case, we will take appropriate measures to protect your personal information in accordance with this Statement.
+    <b>Sharing of Information</b><br>
+    We may share the information we collect about you as described in this Statement or as described at the time of collection or sharing, including as follows:<br>
+    <b>Through Our Services
+    We may share your information:</b><br>
+    • With Users in connection with their request for transportation or other services. For instance we may share your name, personal photo, vehicle photo, vehicle license, vehicle make and model, precise or approximate location, average rating provided by Users, and certain contact information (depending upon your location and applicable laws). After you have provided the requested services, we will send the User a receipt via e-mail or other means which may include the breakdown of amounts charged, your name, contact information, photo, a map of the route you took, and other transaction details.<br>
+    • With other people, as directed by you, in connection with a particular service, offering or promotion; or with third parties to provide you a service you requested through a partnership or promotional offering made by a third party or us;<br>
+    • With the general public if you submit content in a public forum, such as blog comments, social media posts, or other features of our Services that are viewable by the general public;<br>
+    • With third parties with whom you choose to let us share information, for example other apps or websites that integrate with our API or Services, or those with an API or Service with which we integrate; and<br>
+    • With your partner transportation company and any necessary third parties engaged by us or the partner company, if you use the Services through an account connected to a partner transportation company.<br>
+    <b>Other Important Sharing
+    We may share your information:</b><br>
+    • With SCVPL subsidiaries and affiliated entities that provide services or conduct data processing on our behalf, or for data centralization and / or logistics purposes;<br>
+    • With vendors, consultants, marketing partners, and other service providers who need access to such information to carry out work on our behalf;<br>
+    • In response to a request for information by a competent authority if we believe disclosure is in accordance with, or is otherwise required by, any applicable law, regulation, ordinance, license, operating agreement, or legal process;<br>
+    • With law enforcement officials, government authorities, or other third parties if we believe your actions are inconsistent with our user agreements or policies, or to protect the rights, property, or safety of SOCIAL RECHARGE or others;<br>
+    • In connection with, or during negotiations of, any merger, sale of company assets, consolidation or restructuring, financing, or acquisition of all or a portion of our business by or into another company;<br>
+    • If we otherwise notify you and you consent to the sharing; and
+    • In an aggregated and/or anonymized form which cannot reasonably be used to identify you.<br>
+    <b>Social Sharing Features</b><br>
+    The Services may integrate with social sharing features and other related tools which let you share actions you take on our Services with other apps, sites, or media, and vice versa. Your use of such features enables the sharing of information with your friends or the public, depending on the settings you establish with the social sharing service. Please refer to the privacy policies of those social sharing services for more information about how they handle the data you provide to or share through them.<br>
+    Analytics and Advertising Services Provided by Others
+    We may allow others to provide audience measurement and analytics services for us, to serve advertisements on our behalf across the Internet, and to track and report on the performance of those advertisements. These entities may use cookies, web beacons, SDKs, and other technologies to identify your device when you visit our site and use our Services, as well as when you visit other online sites and services.<br>
+    <b>Your Choices</b><br>
+    <b>Account Information</b><br>
+    You may correct your account information at any time by logging into your online or in-app account. If you wish to cancel your account, please email us at support@socialrecharge.com Please note that in some cases we may retain certain information about you as required by law, or for legitimate business purposes to the extent permitted by law. For instance, if you have a standing credit or debt on your account, or if we believe you have committed fraud or violated our Terms, we may seek to resolve the issue before deleting your information.<br>
+    <b>Access Rights</b><br>
+    SOCIAL RECHARGE will comply with individual’s requests regarding access, correction, and/or deletion of the personal data it stores in accordance with applicable law.<br>
+    <b>Location Information</b><br>
+    We request permission for our app’s collection of precise location from your device (whether your own device or one we provide) per the permission system used by your mobile operating system. If you initially permit the collection of this information, you can later disable it by changing the location settings on your mobile device. However, you will not be able to provide services on the SOCIAL RECHARGE platform if you disable our collection of precise location data. Additionally, disabling our collection of precise location from your device will not limit our ability to derive approximate location from your IP address.<br>
+    <b>Contact Information</b><br>
+    We may also seek permission for our app’s collection and syncing of contact information from your device per the permission system used by your mobile operating system. If you initially permit the collection of this information, iOS users can later disable it by changing the contacts settings on your mobile device. The Android platform does not provide such a setting.<br>
+    <b>Promotional Communications</b><br>
+    You may opt out of receiving promotional messages from us by following the instructions in those messages. If you opt out, we may still send you non-promotional communications, such as those about your account, about Services you have requested, or our ongoing business relations.<br>
+    <b>Changes to the Statement</b><br>
+    We may change this Statement from time to time. If we make significant changes in the way we treat your personal information, or to the Statement, we will provide you notice through the Services or by some other means, such as email. Your continued use of the Services after such notice constitutes your consent to the changes. We encourage you to periodically review this Statement for the latest information on our privacy practices.<br>
+    <b>Contact Us</b><br>
+    If you have any questions about this Statement, please contact us at <a href="#" onClick="window.open('mailto:support@socialrecharge.com?subject=Term & Condition');">support@socialrecharge.com </a>, or write us at <b>SOCIAL CLOUD VENTURES PVT LTD / SOCIAL RECHARGE ,<br> Attn: Legal , U1/10 Level One,<br> DLF Phase 3, Cybercity, Gurugram 122002,<br> Haryana, INDIA.</b>
+    <p><a href="#" class="button button-fill button-round popup-close" style="border-radius: 20px;">Agree</a>
+    </p>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="cordova.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "APIKEY",
+      authDomain: "AuthDomain",
+      databaseURL: "DataBaseUrl",
+      storageBucket: "StorageBucketURL",
+      messagingSenderId: "MessagingSenderKey"
+    };
+    firebase.initializeApp(config);
+    const messaging = firebase.messaging();
+  </script>
+  <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="bower_components/framework7/dist/js/framework7.bundle.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/framework7/3.1.1/js/framework7.min.js"></script> -->
+  <script type="text/javascript" src="assets/js/jssocials.min.js"></script>
+  <script type="text/javascript" src="assets/js/routes.js"></script>
+  <script type="text/javascript" src="assets/js/app.js"></script>
+  
+  <script src="https://maps.googleapis.com/maps/api/js?key=GoogleMapPlacesApiKey&libraries=geometry,places"></script>
+  
+  <script src="js/gmaps.js"></script>
+  <script src="https://cdn.firebase.com/libs/geofire/4.1.1/geofire.min.js"></script>
+  <script type="text/javascript" src="https://www.socialrecharge.com/app/js/jquery.geocomplete.min.js"></script>
+  <script src="js/intlInputPhone.min.js"></script>
+  <script type="text/javascript" src="js/jquery.timeago.js"></script>
+  <script src="vendor/jquery.easing.1.3.js"></script>
+  <script src="vendor/markerAnimate.js"></script>
+  <script src="vendor/SlidingMarker.js"></script>
+  <script type="text/javascript">
+    $('.input-phone').intlInputPhone({
+      preferred_country: ['in', 'us', 'gb']
+    });
+  </script>
+  <!-- <script src="js/html5-qrcode.min.js"></script> -->
+  <!-- <script src="../node_modules/qr-scanner/qr-scanner.min.js"></script> -->
+</body>
+</html>
